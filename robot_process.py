@@ -17,7 +17,7 @@ left = 2
 def object_detection(v):
     yolo = YOLO()
     video_path = 0
-    output_path="robot_cam.mp4"
+    output_path="robot_cam.avi"
 
     vid = cv2.VideoCapture(video_path)
     if not vid.isOpened():

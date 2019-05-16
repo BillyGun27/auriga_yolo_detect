@@ -12,7 +12,7 @@ import cv2
 def object_detection(v):
     yolo = YOLO()
     video_path = 0
-    output_path="robot_cam.mp4"
+    output_path="robot_cam.avi"
 
     vid = cv2.VideoCapture(video_path)
     if not vid.isOpened():
@@ -94,14 +94,14 @@ def object_detection(v):
     yolo.close_session() 
 
 def robot_control(v):
-    sleep(5)
+    sleep(10)
     print("alpha")
     while True:
         #print("search")
         if(v.value == 1):
             print("found")
             #print('trigger ' + str(v.value) + str(v.value%3) )
-        sleep(0.3)
+        sleep(1)
         #if(v.value==9):
         #   break
         
