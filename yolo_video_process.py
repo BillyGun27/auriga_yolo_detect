@@ -27,29 +27,29 @@ def detect_video(yolo, video_path, output_path=""):
     while True:
         return_value, frame = vid.read()
         image = Image.fromarray(frame)
-        image , box , label  = yolo.detect_only_robot(image , "bottle")
+        #image , box , label  = yolo.detect_only_robot(image , "bottle")
         
-        imx = image.size[0]
-        top, left, bottom, right = box
-        xc = left + ( (right-left) //2)
-        yc = top + ( (bottom-top)  //2)
-        if( xc < (imx//3) ):
-            posx = "left"
-        elif( (imx*2//3) < xc ):
-            posx = "right"
-        else :
-            posx = "center"
+        #imx = image.size[0]
+        #top, left, bottom, right = box
+        #xc = left + ( (right-left) //2)
+        #yc = top + ( (bottom-top)  //2)
+        #if( xc < (imx//3) ):
+        #    posx = "left"
+        #elif( (imx*2//3) < xc ):
+        #    posx = "right"
+        #else :
+        #    posx = "center"
         
-        if label :
-            print(label , box)
-            print(posx)
+        #if label :
+        #    print(label , box)
+        #    print(posx)
 
-        if label:
-            search_result = "Found" + label + " ,Pos : " + posx 
-            color_result = (0, 255, 0)
-        else :
-            search_result = "Not Found"
-            color_result = (0, 0, 255)
+        #if label:
+        #    search_result = "Found" + label + " ,Pos : " + posx 
+        #    color_result = (0, 255, 0)
+        #else :
+        #    search_result = "Not Found"
+        #    color_result = (0, 0, 255)
 
         result = np.asarray(image)
         curr_time = timer()
@@ -63,8 +63,8 @@ def detect_video(yolo, video_path, output_path=""):
             curr_fps = 0
         cv2.putText(result, text=fps, org=(3, 15), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                     fontScale=0.50, color=(255, 0, 0), thickness=2)
-        cv2.putText(result, text=search_result, org=(3, 40), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-                    fontScale=0.50, color=color_result, thickness=2)
+        #cv2.putText(result, text=search_result, org=(3, 40), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+        #            fontScale=0.50, color=color_result, thickness=2)
         height, width, channels = result.shape
         cv2.namedWindow("result", cv2.WINDOW_NORMAL)
         cv2.resizeWindow('result', width,height) 

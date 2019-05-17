@@ -69,11 +69,11 @@ if __name__ == '__main__':
     sleep(0.1)
     
     commandKey=[]
-    commandKey.append(Command("forward",40))
-    commandKey.append(Command("backward",40))
-    commandKey.append(Command("right",28))
-    commandKey.append(Command("forward",40))
-    commandKey.append(Command("left",28))
+    commandKey.append(Command("forward",80))
+    #commandKey.append(Command("backward",40))
+    #commandKey.append(Command("right",28))
+    #commandKey.append(Command("forward",40))
+    #commandKey.append(Command("left",28))
    
     i = 0
     commandKey[i].toFinish()  

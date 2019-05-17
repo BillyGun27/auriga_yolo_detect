@@ -28,12 +28,12 @@ from tensorflow.keras.utils import multi_gpu_model
 
 
 #model_name = 'new_small_mobilenets2_trained_weights_final.h5'
-#model_name = 'bnfuse_small_mobilenets2_trained_model.h5'
+model_name = 'bnfuse_small_mobilenets2_trained_model.h5'
 #model_name = 'bnfuse_tiny_yolo_trained.h5'
 #model_name = 'tiny_yolo.h5'
 #model_name = 'new_tiny_yolo_trained_weights_final.h5'
 #model_name = 'new_med_darknet_trained_weights_final.h5'
-model_name = 'bnfuse_med_tiny_yolo.h5'
+#model_name = 'bnfuse_med_tiny_yolo.h5'
 
 class YOLO(object):
     _defaults = {
@@ -42,7 +42,7 @@ class YOLO(object):
         "anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
         #"anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
         #"classes_path": 'class/coco_classes.txt',#voc_classes.txt,coco_classes.txt
-        "score" : 0.1,
+        "score" : 0.2,
         "iou" : 0.45,
         "model_image_size" : (224 , 224),#416,288,224,128 32multiplier
         "gpu_num" : 1,

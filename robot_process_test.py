@@ -94,7 +94,7 @@ def object_detection(v):
     yolo.close_session() 
 
 def robot_control(v):
-    sleep(10)
+    sleep(30)
     print("alpha")
     while True:
         #print("search")
