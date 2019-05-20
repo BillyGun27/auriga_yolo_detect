@@ -17,7 +17,11 @@ def detect_video(yolo, video_path, output_path=""):
         print("!!! TYPE:", type(output_path), type(video_FourCC), type(video_fps), type(video_size))
         if(video_path == 0 ):
             video_FourCC = cv2.VideoWriter_fourcc(*'XVID')
+<<<<<<< HEAD
             video_fps = 10.0 #20.0 ->normal 10.0 ->raspi min
+=======
+            video_fps = 2.0
+>>>>>>> bdb07280ea5efa71ad58919a02787095b1708404
         print(video_FourCC,video_fps)
         out = cv2.VideoWriter(output_path, video_FourCC, video_fps, video_size)
     accum_time = 0
@@ -81,4 +85,6 @@ def detect_video(yolo, video_path, output_path=""):
 
 
 if __name__ == '__main__':
+
     detect_video(YOLO(), 0  ,"robot_cam.avi" )
+
