@@ -33,7 +33,7 @@ def object_detection(v):
         print("!!! TYPE:", type(output_path), type(video_FourCC), type(video_fps), type(video_size))
         if(video_path == 0 ):
             video_FourCC = cv2.VideoWriter_fourcc(*'XVID')
-            video_fps = 20.0
+            video_fps = 10.0 #20.0
         print(video_FourCC,video_fps)
         out = cv2.VideoWriter(output_path, video_FourCC, video_fps, video_size)
     accum_time = 0
@@ -120,8 +120,8 @@ def robot_control(v):
     sleep(5)
     
     bot = MegaPi()
-    #bot.start("/dev/ttyUSB0")
-    bot.start("/dev/rfcomm0")
+    bot.start("/dev/ttyUSB0")
+    #bot.start("/dev/rfcomm0")
 
     bot.encoderMotorSetCurPosZero(right)
     bot.encoderMotorSetCurPosZero(left)
@@ -138,13 +138,13 @@ def robot_control(v):
     #commandKey.append(Command(bot,"leftb",56))
     
     commandKey.append(Command(bot,"forward",80))
-    #commandKey.append(Command(bot,"left",28))
-    #commandKey.append(Command(bot,"forward",40))
-    #commandKey.append(Command(bot,"left",28))
-    #commandKey.append(Command(bot,"forward",60))
-    #commandKey.append(Command(bot,"left",28))
-    #commandKey.append(Command(bot,"forward",40))
-    #commandKey.append(Command(bot,"forward",80))
+    commandKey.append(Command(bot,"left",28))
+    commandKey.append(Command(bot,"forward",40))
+    commandKey.append(Command(bot,"left",28))
+    commandKey.append(Command(bot,"forward",80))
+    commandKey.append(Command(bot,"left",28))
+    commandKey.append(Command(bot,"forward",40))
+    commandKey.append(Command(bot,"left",28))
     
     i = 0
     commandKey[i].toFinish()  
@@ -190,7 +190,8 @@ def robot_control(v):
                    # print("change")
                     i+=1
                     if i>=len(commandKey):
-                        break
+                       # break
+                       i=0
                     #print("i"+str(i))
                     print("Direction" + commandKey[i].getDirect())
                     commandKey[i].toFinish()

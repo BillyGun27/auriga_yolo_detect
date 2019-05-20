@@ -31,9 +31,9 @@ class Command:
 
     def toFinish(self):
         print(self.tickR)
-        self.bot.encoderMotorMover( right, 100, self.tickR)
-        self.bot.encoderMotorMover( left, 100, self.tickL)
-    
+        self.bot.encoderMotorMover( right, 30, self.tickR)
+        self.bot.encoderMotorMover( left, 30, self.tickL)
+ 
     def getDirect(self):
         return self.direct 
     

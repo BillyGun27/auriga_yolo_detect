@@ -16,8 +16,8 @@ def EncoderGroup():
 
 if __name__ == '__main__':
     bot = MegaPi()
-    #bot.start("/dev/ttyUSB0")
-    bot.start("/dev/rfcomm0")
+    bot.start("/dev/ttyUSB0")
+    #bot.start("/dev/rfcomm0")
 
     bot.encoderMotorSetCurPosZero(right)
     bot.encoderMotorSetCurPosZero(left)
@@ -37,9 +37,11 @@ if __name__ == '__main__':
     commandKey.append(Command(bot,"left",28))
     commandKey.append(Command(bot,"forward",40))
     commandKey.append(Command(bot,"left",28))
-    commandKey.append(Command(bot,"forward",60))
+    commandKey.append(Command(bot,"forward",80))
     commandKey.append(Command(bot,"left",28))
     commandKey.append(Command(bot,"forward",40))
+    commandKey.append(Command(bot,"left",28))
+    
     
     i = 0
     commandKey[i].toFinish()  
