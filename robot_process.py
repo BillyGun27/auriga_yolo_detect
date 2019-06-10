@@ -43,7 +43,7 @@ def object_detection(v):
     while True:
         return_value, frame = vid.read()
         image = Image.fromarray(frame)
-        image , box , label  = yolo.detect_only_robot(image , "bottle")
+        image , box , label  = yolo.detect_only_robot(image , "shoes")
         
         imx = image.size[0]
         top, left, bottom, right = box
@@ -160,8 +160,8 @@ def robot_control(v):
             sleep(1)
             print("found object")
             bot.pwmWrite(45, 200)
-            sleep(1);
-            bot.digitalWrite(45,0);
+            sleep(1)
+            bot.digitalWrite(45,0)
             break
             
         encodergroup =  EncoderGroup(bot)

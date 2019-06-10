@@ -29,20 +29,21 @@ from tensorflow.keras.utils import multi_gpu_model
 
 #model_name = 'new_small_mobilenets2_trained_weights_final.h5'
 #model_name = 'bnfuse_small_mobilenets2_trained_model.h5'
+model_name = 'bnfuse_eld_small_mobilenets2_trained_weights_final.h5'
 #model_name = 'bnfuse_tiny_yolo_trained.h5'
 #model_name = 'tiny_yolo.h5'
 #model_name = 'new_tiny_yolo_trained_weights_final.h5'
 #model_name = 'new_med_darknet_trained_weights_final.h5'
-model_name = 'bnfuse_med_tiny_yolo.h5'
+#model_name = 'bnfuse_med_tiny_yolo.h5'
 
 class YOLO(object):
     _defaults = {
         "model_path": 'model_data/'+model_name,#yolo.h5,trained_weights_final.h5
-        "classes_path": 'class/voc_classes.txt',#voc_classes.txt,coco_classes.txt
-        "anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
+        #"classes_path": 'class/voc_classes.txt',#voc_classes.txt,coco_classes.txt
         #"anchors_path": 'anchors/yolo_anchors.txt',#yolo_anchors.txt
-        #"classes_path": 'class/coco_classes.txt',#voc_classes.txt,coco_classes.txt
-        "score" : 0.4,
+        "anchors_path": 'anchors/elderly_anchors.txt',#yolo_anchors.txt
+        "classes_path": 'class/elderly_classes.txt',#voc_classes.txt,coco_classes.txt
+        "score" : 0.1,
         "iou" : 0.45,
         "model_image_size" : (224 , 224),#416,288,224,128 32multiplier
         "gpu_num" : 1,
@@ -414,7 +415,7 @@ def detect_video(yolo, video_path, output_path=""):
     while True:
         return_value, frame = vid.read()
         image = Image.fromarray(frame)
-        image , box , label  = yolo.detect_only(image , "bottle")
+        image , box , label  = yolo.detect_only(image , "shoes")
         
         imx = image.size[0]
         print(label , box)
